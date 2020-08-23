@@ -1,11 +1,10 @@
 {
   "presets": [
-    // ["@babel/preset-typescript", {
-    //   "jsxPragma": "ToyReact.createElement",
-    //   "isTSX": true,
-    //   "allExtensions": true
-    // }]
-    "@babel/preset-env"
+    ["@babel/preset-typescript", {
+      "jsxPragma": "React.createElement",
+      "isTSX": true,
+      "allExtensions": true
+    }]
   ],
   "plugins": [[
     "@babel/plugin-transform-react-jsx", {

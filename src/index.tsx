@@ -1,8 +1,10 @@
-import React from './React';
+import React from './toyReact/React';
 
 // eslint-disable-next-line
-const a = (<div className="cc">123</div>);
+const A = (<div className="cc"><span>123</span></div>);
 
-const c = 1232;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+// const C = (<A name="xyf"><span>333</span></A>);
 
-console.log(a);
+console.log('a-->', A);
+// console.log('c-->', C);
