@@ -2,6 +2,8 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack'); // to access built-in plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 
 module.exports = {
   entry: './src/index.tsx',
@@ -36,9 +38,10 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    // noInfo: true,
     // open: true,
     hot: true,
-    quiet: true
+    quiet: true,
   },
   plugins: [
     new webpack.ProgressPlugin(),
@@ -47,6 +50,7 @@ module.exports = {
       title: 'ToyReact',
       template: './temp/index.html',
     }),
+    new FriendlyErrorsWebpackPlugin(),
   ],
 
 };

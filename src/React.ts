@@ -1,6 +1,8 @@
 const React = {
   createElement: (type, attributes, ...children) => {
-    console.log(type, attributes, children);
+    if (children.length) {
+      document.createElement('type');
+    }
   },
 };
 
