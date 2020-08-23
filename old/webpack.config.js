@@ -1,10 +1,11 @@
-const path = require('path');
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack'); // to access built-in plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './index.js',
   mode: 'development',
   devtool: 'inline-source-map',
   output: {
@@ -14,15 +15,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(tsx|ts|js|jsx)?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          fix: true,
-        },
-      },
-      {
         test: /\.(tsx|ts|js|jsx)?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
@@ -30,22 +22,21 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: [ '.tsx', '.ts', '.js', '.jsx' ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
-    // open: true,
-    hot: true,
-    quiet: true
+    open: true,
+    hot: true
   },
   plugins: [
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'ToyReact',
-      template: './temp/index.html',
+      template:'./temp/index.html'
     }),
   ],
 
