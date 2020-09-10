@@ -7,4 +7,7 @@ const A = (<div className="cc"><span>123</span></div>);
 // const C = (<A name="xyf"><span>333</span></A>);
 
 console.log('a-->', A);
+
+document.getElementsByTagName('body')[0].appendChild(A);
+
 // console.log('c-->', C);

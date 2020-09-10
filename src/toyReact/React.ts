@@ -20,19 +20,21 @@ function createDom(type: CreateElementType, attributes: Attributes, ...children)
     }
   }
   const insertChildren = (childrenChild: CreateDomAttributes[]) => {
-    childrenChild.forEach((child) => {
-      let childElement;
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    childrenChild.forEach((itm:any) => {
+    // eslint-disable-next-line
+      let child = itm;
       if (typeof child === 'object' && Array.isArray(child)) {
         insertChildren(child);
       } else {
-        if (child === null || child === undefined) {
-          childElement = document.createTextNode('');
+        // if (child === null || child === undefined) {
+        if (!child) {
+          child = document.createTextNode('');
         }
         if (typeof child === 'string') {
-          childElement = document.createTextNode(child);
+          child = document.createTextNode(child);
         }
-        element.appendChild(childElement);
+        element.appendChild(child);
       }
     });
 
